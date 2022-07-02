@@ -26,3 +26,43 @@ services:
     depends_on:
       - nginx-service
 
+  checkuppercase-service:
+    container_name: pyconmicroservices-checkuppercase-service
+    build: ./checkuppercase
+    hostname: checkuppercase-service
+    restart: always
+    depends_on:
+      - nginx-service
+
+  generatepassword-service:
+    container_name: pyconmicroservices-generatepassword-service
+    build: ./generatepassword
+    hostname: generatepassword-service
+    restart: always
+    depends_on:
+      - nginx-service
+
+  lowercase-service:
+    container_name: pyconmicroservices-lowercase-service
+    build: ./lowercase
+    hostname: lowercase-service
+    restart: always
+    depends_on:
+      - nginx-service
+
+  titlecase-service:
+    container_name: pyconmicroservices-titlecase-service
+    build: ./titlecase
+    hostname: titlecase-service
+    restart: always
+    depends_on:
+      - nginx-service
+
+
+  swapcase-service:
+    container_name: pyconmicroservices-swapcase-service
+    build: ./swapcase
+    hostname: titlecase-service
+    restart: always
+    depends_on:
+      - nginx-service
