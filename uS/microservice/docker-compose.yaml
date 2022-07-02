@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  nginx-service:
+    container_name: pyconmicroservices-nginx-service
+    hostname: nginx-service
+    build: ./nginx
+    ports:
+        - 5052:5052
+        - 5051:5051
+    restart: always
+
+  capitalize-service:
+    container_name: pyconmicroservices-capitalize-service
+    build: ./capitalize
+    hostname: capitalize-service
+    restart: always
+    depends_on:
+      - nginx-service
+
+  checklowercase-service:
+    container_name: pyconmicroservices-checklowercase-service
+    build: ./checklowercase
+    hostname: checklowercase-service
+    restart: always
+    depends_on:
+      - nginx-service
+
